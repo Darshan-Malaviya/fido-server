@@ -31,7 +31,7 @@
     "webpack-cli": "^3.3.12"
   },
   "engines": {
-    "node": "10.x"
+    "node": "18.x"
   },
   "repository": {
     "url": "https://github.com/googlecodelabs/fido2-codelab"
