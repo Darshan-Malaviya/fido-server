@@ -27,7 +27,6 @@ app.engine("html", hbs.__express);
 app.set("views", "./views");
 app.use(express.json());
 app.use(express.static("public"));
-app.use(express.static("static"));
 app.use(
 	session({
 		secret: "secret", // You should specify a real secret here
