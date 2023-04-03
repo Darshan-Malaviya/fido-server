@@ -99,6 +99,8 @@ app.get("/.well-known/assetlinks.json", (req, res) => {
 		"delegate_permission/common.handle_all_urls",
 		"delegate_permission/common.get_login_creds",
 	];
+
+	// for web
 	assetlinks.push({
 		relation: relation,
 		target: {
@@ -106,16 +108,28 @@ app.get("/.well-known/assetlinks.json", (req, res) => {
 			site: process.env.ORIGIN,
 		},
 	});
-	if (process.env.ANDROID_PACKAGENAME && process.env.ANDROID_SHA256HASH) {
-		assetlinks.push({
-			relation: relation,
-			target: {
-				namespace: "android_app",
-				package_name: process.env.ANDROID_PACKAGENAME,
-				sha256_cert_fingerprints: [process.env.ANDROID_SHA256HASH],
-			},
-		});
-	}
+
+	// fido android apps
+	assetlinks.push({
+		relation: relation,
+		target: {
+			namespace: "android_app",
+			package_name: "com.example.fido",
+			sha256_cert_fingerprints: [
+				"4D:82:26:8E:E4:31:6A:68:82:D6:DB:3E:FC:E5:DB:2F:EE:A7:36:ED:2F:8B:C7:52:AF:E6:AA:4E:43:77:E4:B2",
+			],
+		},
+	});
+	// if (process.env.ANDROID_PACKAGENAME && process.env.ANDROID_SHA256HASH) {
+	// 	assetlinks.push({
+	// 		relation: relation,
+	// 		target: {
+	// 			namespace: "android_app",
+	// 			package_name: process.env.ANDROID_PACKAGENAME,
+	// 			sha256_cert_fingerprints: [process.env.ANDROID_SHA256HASH],
+	// 		},
+	// 	});
+	// }
 	res.json(assetlinks);
 });
 
