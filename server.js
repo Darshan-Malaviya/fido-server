@@ -109,6 +109,7 @@ app.get("/.well-known/assetlinks.json", (req, res) => {
 		},
 	});
 
+	// darshan's laptop
 	// fido android apps
 	assetlinks.push({
 		relation: relation,
@@ -117,6 +118,19 @@ app.get("/.well-known/assetlinks.json", (req, res) => {
 			package_name: "com.example.fido",
 			sha256_cert_fingerprints: [
 				"4D:82:26:8E:E4:31:6A:68:82:D6:DB:3E:FC:E5:DB:2F:EE:A7:36:ED:2F:8B:C7:52:AF:E6:AA:4E:43:77:E4:B2",
+			],
+		},
+	});
+
+	// nj pc
+	// fido android apps
+	assetlinks.push({
+		relation: relation,
+		target: {
+			namespace: "android_app",
+			package_name: "com.example.fido",
+			sha256_cert_fingerprints: [
+				"D3:25:43:97:DB:21:4D:35:CE:39:74:60:2F:0E:32:E9:4C:D3:91:A1:86:FD:2B:C0:39:7F:3B:D3:39:BD:4E:DA",
 			],
 		},
 	});
